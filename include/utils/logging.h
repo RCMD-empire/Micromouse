@@ -8,7 +8,7 @@
 
 #ifdef BLE_LOGGING
     #define LOGGING_BEGIN() {                       \
-        ble.begin("EvoMouse");                      \
+        ble.begin("A-Z EvoMouse :)");                      \
         Log.begin(LOG_LEVEL_VERBOSE, &ble);         \
     }
 #else

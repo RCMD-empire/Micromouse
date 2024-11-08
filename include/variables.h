@@ -32,6 +32,8 @@ struct Variables {
     int16_t motor_left;
     int16_t motor_right;
     bool    motor_brake;
+
+    bool blinker;
 };
 
 } // namespace MM

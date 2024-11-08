@@ -31,10 +31,12 @@ MM::Task task_debug          {debug, 1s};
 
 
 void debug() {
+  LOG_INFO("Hello World!\n");
 }
 
 void setup() {
   LOGGING_BEGIN();
+  pinMode(DEBUG_LED_1, OUTPUT);
   LOG_INFO("Setup Done\n");
 }
 
