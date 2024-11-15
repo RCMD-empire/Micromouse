@@ -31,12 +31,20 @@ MM::Task task_debug          {debug, 1s};
 
 
 void debug() {
-  LOG_INFO("Hello World!\n");
+  LOG_INFO("R: %d, FR: %d, L: %d, FL: %d\n",vars.ir_right_raw, vars.ir_frontright_raw, vars.ir_left_raw, vars.ir_frontleft_raw);
 }
 
 void setup() {
   LOGGING_BEGIN();
   pinMode(DEBUG_LED_1, OUTPUT);
+  vars.ir_en_frontleft = true;
+  comp.ir_frontleft.update_output();
+  vars.ir_en_frontright = true;
+  comp.ir_frontright.update_output();
+  vars.ir_en_left = true;
+  comp.ir_left.update_output();
+  vars.ir_en_right=true;
+  comp.ir_right.update_output();
   LOG_INFO("Setup Done\n");
 }
 
