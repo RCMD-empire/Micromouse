@@ -36,6 +36,11 @@ void debug() {
   LOG_INFO("FrontRight: %d\n",vars.ir_frontright_raw);
   LOG_INFO("Left: %d\n",vars.ir_left_raw);
   LOG_INFO("FrontLeft: %d\n\n",vars.ir_frontleft_raw);
+  String readStr = ble.readString();
+  if (readStr = "M1")
+  {
+    LOG_INFO("Boobies!");
+  }
 }
 
 void setup() {
