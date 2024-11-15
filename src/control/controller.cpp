@@ -9,6 +9,7 @@
 void MM::evaluate()
 {
     /* Write your code here */
-    
+    comp.motor_left.motorGoP(50);
+    comp.motor_right.motorGoP(50);
 
 }
