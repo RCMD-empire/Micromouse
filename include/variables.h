@@ -23,7 +23,10 @@ struct Variables {
 // Internals ==============================================
     double inputPID;
     double OutputPID;
-
+    double ir_old_left;
+    double ir_old_right;
+    double ir_old_Frontleft;
+    double ir_old_Frontright;
     bool frist;
 // Outputs ================================================
     bool ir_en_left;

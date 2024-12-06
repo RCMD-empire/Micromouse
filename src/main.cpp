@@ -33,11 +33,7 @@ MM::Task task_debug          {debug, 1s};
 
 
 void debug() {
-  LOG_INFO("\nSensors' raws:\n");
-  LOG_INFO("Right: %d\n",vars.ir_right_raw);
-  LOG_INFO("FrontRight: %d\n",vars.ir_frontright_raw);
-  LOG_INFO("Left: %d\n",vars.ir_left_raw);
-  LOG_INFO("FrontLeft: %d\n\n",vars.ir_frontleft_raw);
+  
 }
 
 void setup() {

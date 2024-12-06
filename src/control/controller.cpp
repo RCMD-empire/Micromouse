@@ -8,7 +8,7 @@
 
 
 // PID constants ==========================================
-double Kp = 0.005;  // Proporcionális tag
+double Kp = 1;  // Proporcionális tag
 double Ki = 0.0;  // Integrális tag
 double Kd = 0.0; // Differenciális tag
 
@@ -32,7 +32,7 @@ void controlMotorsWithPWM() {
    
     vars.inputPID = vars.ir_left_filt - vars.ir_right_filt;
 
-    LOG_INFO("PID: %d, \n", vars.OutputPID);
+    LOG_INFO("PID: %d, left: %d,right: %d \n", vars.OutputPID, vars.ir_left_filt ,vars.ir_right_filt);
     LOG_INFO("input: %d, \n", vars.inputPID);
     
 
