@@ -10,6 +10,8 @@
 #include "control/controller.h"
 #include "control/input_handling.h"
 #include "control/output_handling.h"
+#include "PID_v1.h"
+
 
 using namespace std::chrono_literals;
 
@@ -31,11 +33,7 @@ MM::Task task_debug          {debug, 1s};
 
 
 void debug() {
-  LOG_INFO("\nSensors' raws:\n");
-  LOG_INFO("Right: %d\n",vars.ir_right_raw);
-  LOG_INFO("FrontRight: %d\n",vars.ir_frontright_raw);
-  LOG_INFO("Left: %d\n",vars.ir_left_raw);
-  LOG_INFO("FrontLeft: %d\n\n",vars.ir_frontleft_raw);
+  
 }
 
 void setup() {
@@ -50,6 +48,7 @@ void setup() {
   vars.ir_en_right=true;
   comp.ir_right.update_output();
   LOG_INFO("Setup Done\n");
+  vars.frist = true;
 }
 
 void loop() {
