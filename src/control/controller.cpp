@@ -8,7 +8,7 @@
 
 
 // PID constants ==========================================
-double Kp = 1;  // Proporcionális tag
+double Kp = 0.1;  // Proporcionális tag
 double Ki = 0.0;  // Integrális tag
 double Kd = 0.0; // Differenciális tag
 
@@ -31,15 +31,19 @@ int16_t scaleToPWM(int16_t pidOutput, int16_t maxPWM) {
 void controlMotorsWithPWM() {
    
     vars.inputPID = vars.ir_left_filt - vars.ir_right_filt;
-
+    myPID.Compute();
     LOG_INFO("PID: %d, left: %d,right: %d \n", vars.OutputPID, vars.ir_left_filt ,vars.ir_right_filt);
     LOG_INFO("input: %d, \n", vars.inputPID);
     
 
-    /*if (front_left_distance > 2000.0 || front_right_distance > 2000.0) {
+    if (vars.ir_frontleft_filt > 2000.0 || vars.ir_frontright_filt > 2000.0) {
         comp.motor_left.motorStop();  
         comp.motor_right.motorStop();   
-    }*/
+    }
+    else {
+        comp.motor_left.motorGoP(15 - vars.OutputPID);
+        comp.motor_right.motorGoP(15 + vars.OutputPID);
+    }
 
 
     /*if (left_distance < target_distance) {
