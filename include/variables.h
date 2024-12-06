@@ -21,11 +21,10 @@ struct Variables {
     uint32_t encoder_right_raw;
 
 // Internals ==============================================
-    double error_left_old;   // Bal motor előző hiba
-    double error_right_old;  // Jobb motor előző hiba
-    double integral_left;    // Bal motor integrált hiba
-    double integral_right;   // Jobb motor integrált hiba
+    double inputPID;
+    double OutputPID;
 
+    bool frist;
 // Outputs ================================================
     bool ir_en_left;
     bool ir_en_frontleft;

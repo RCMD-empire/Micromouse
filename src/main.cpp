@@ -10,6 +10,8 @@
 #include "control/controller.h"
 #include "control/input_handling.h"
 #include "control/output_handling.h"
+#include "PID_v1.h"
+
 
 using namespace std::chrono_literals;
 
@@ -50,6 +52,7 @@ void setup() {
   vars.ir_en_right=true;
   comp.ir_right.update_output();
   LOG_INFO("Setup Done\n");
+  vars.frist = true;
 }
 
 void loop() {
