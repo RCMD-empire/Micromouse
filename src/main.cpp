@@ -31,12 +31,24 @@ MM::Task task_debug          {debug, 1s};
 
 
 void debug() {
-  LOG_INFO("Hello World!\n");
+  LOG_INFO("\nSensors' raws:\n");
+  LOG_INFO("Right: %d\n",vars.ir_right_raw);
+  LOG_INFO("FrontRight: %d\n",vars.ir_frontright_raw);
+  LOG_INFO("Left: %d\n",vars.ir_left_raw);
+  LOG_INFO("FrontLeft: %d\n\n",vars.ir_frontleft_raw);
 }
 
 void setup() {
   LOGGING_BEGIN();
   pinMode(DEBUG_LED_1, OUTPUT);
+  vars.ir_en_frontleft = true;
+  comp.ir_frontleft.update_output();
+  vars.ir_en_frontright = true;
+  comp.ir_frontright.update_output();
+  vars.ir_en_left = true;
+  comp.ir_left.update_output();
+  vars.ir_en_right=true;
+  comp.ir_right.update_output();
   LOG_INFO("Setup Done\n");
 }
 

@@ -8,6 +8,10 @@
 void MM::read_sensors()
 {
     /* Write your code here */
+    comp.ir_frontleft.read();
+    comp.ir_frontright.read();
+    comp.ir_left.read();
+    comp.ir_right.read();
 }
 
 void MM::pre_process()
