@@ -8,11 +8,11 @@
 
 
 // PID constants ==========================================
-double Kp = 2;  // Proporcionális tag
-double Ki = 5;  // Integrális tag
-double Kd = 1; // Differenciális tag
+double Kp = 0.005;  // Proporcionális tag
+double Ki = 0.0;  // Integrális tag
+double Kd = 0.0; // Differenciális tag
 
-double Setpoint = 2000;
+double Setpoint = 0.0;
 
 // Alapjárati sebesség és maximális PWM érték
 int16_t baseSpeed = 8; // Alapjárati sebesség (%)
@@ -30,12 +30,11 @@ int16_t scaleToPWM(int16_t pidOutput, int16_t maxPWM) {
 
 void controlMotorsWithPWM() {
    
-    double left_distance = vars.ir_left_filt;
-    double right_distance = vars.ir_right_filt;
-    double front_left_distance = vars.ir_frontleft_filt;
-    double front_right_distance = vars.ir_frontright_filt;
+    vars.inputPID = vars.ir_left_filt - vars.ir_right_filt;
 
     LOG_INFO("PID: %d, \n", vars.OutputPID);
+    LOG_INFO("input: %d, \n", vars.inputPID);
+    
 
     /*if (front_left_distance > 2000.0 || front_right_distance > 2000.0) {
         comp.motor_left.motorStop();  
@@ -68,6 +67,9 @@ void controlMotorsWithPWM() {
 void MM::evaluate()
 {
     if(vars.frist){
+       
+        myPID.SetSampleTime(1000);
+        myPID.SetOutputLimits(50,-50);
         myPID.SetMode(AUTOMATIC);
         vars.frist = false;
     }
