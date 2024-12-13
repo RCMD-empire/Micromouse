@@ -26,15 +26,17 @@ bool jo =true;
 if (vars.ir_frontleft_filt>vars.max_distance_stop&&
 vars.ir_frontright_filt>vars.max_distance_stop)
 {
-   if (vars.ir_left_filt>400 && vars.ir_right_filt>400){
+   /*if (vars.ir_left_filt>400 && vars.ir_right_filt>400){
         vars.haMerre= STOP;
         LOG_INFO("STOP \n");
     }
-   else if(vars.ir_left_filt<vars.ir_right_filt){
+   else*/ if(vars.ir_left_filt<vars.ir_right_filt){
+        myPID.SetTunings(0.01,0,0);
         vars.haMerre = NINLEFT;
         LOG_INFO("NINLEFT \n");
     }
    else if(vars.ir_right_filt<vars.ir_left_filt){
+        myPID.SetTunings(0.01,0,0);
         vars.haMerre = NINRIGHT;
         LOG_INFO("NINRIGHT \n");
         
@@ -50,7 +52,7 @@ else
         vars.haMerre=RIGHT;//balra
     }
     else if(vars.ir_left_filt>vars.maximum_distance&&vars.ir_right_filt<vars.maximum_distance){
-        myPID.SetTunings(0.007,0,0);
+        myPID.SetTunings(0.001,0,0);
        
 
         vars.haMerre=LEFT;//jobbra
