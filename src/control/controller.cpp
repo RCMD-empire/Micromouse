@@ -9,6 +9,7 @@ PID myPID(&vars.Input,&vars.Output,&vars.Setpoint,vars.Kp,vars.Ki, vars.Kd,DIREC
 bool jo =true;
  void MM::evaluate()
 {
+    LOG_INFO("FL: %d, L: %d, FR: %d, R: %d\n",vars.ir_frontleft_filt,vars.ir_left_filt, vars.ir_frontright_filt, vars.ir_right_filt);
     vars.Input=vars.ir_left_filt-vars.ir_right_filt;
         if (jo)
     {
@@ -26,12 +27,10 @@ if (vars.ir_frontleft_filt>vars.maximum_distance&&vars.ir_frontright_filt>vars.m
 {
    
    if(vars.ir_left_filt>vars.maximum_distance){
-        LOG_INFO("90JOBB");
         vars.haMerre = NINRIGHT;
    }
     else if(vars.ir_right_filt>vars.maximum_distance){
         vars.haMerre = NINLEFT;
-        LOG_INFO("90BAL");
     }
     else{
         vars.haMerre= STOP;
@@ -41,19 +40,19 @@ if (vars.ir_frontleft_filt>vars.maximum_distance&&vars.ir_frontright_filt>vars.m
 else 
   {
     if(vars.ir_left_filt<vars.maximum_distance&&vars.ir_right_filt>vars.maximum_distance){
-        myPID.SetTunings(0.003,0,0);
+        myPID.SetTunings(0.007,0,0);
         
         vars.haMerre=RIGHT;//balra
     }
     else if(vars.ir_left_filt>vars.maximum_distance&&vars.ir_right_filt<vars.maximum_distance){
-        myPID.SetTunings(0.003,0,0);
+        myPID.SetTunings(0.007,0,0);
        
 
         vars.haMerre=LEFT;//jobbra
     }
     else{
-        myPID.SetTunings(0.0015,0,0);
-        LOG_INFO("FL: %d, L: %d, FR: %d, R: %d\n",vars.ir_frontleft_filt,vars.ir_left_filt, vars.ir_frontright_filt, vars.ir_right_filt);
+        myPID.SetTunings(0.007,0,0);
+        
      
         vars.haMerre=FORWARD;
 

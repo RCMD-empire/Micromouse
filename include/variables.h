@@ -35,7 +35,7 @@ struct Variables {
     double ir_frontrigth_old;
     double ir_right_old;
     double ir_left_old;
-    double maximum_distance=500;
+    double maximum_distance=700;
 
     hovaMennyek haMerre;
 
