@@ -10,6 +10,7 @@
 #include "control/controller.h"
 #include "control/input_handling.h"
 #include "control/output_handling.h"
+#include "PID_v1.h"
 
 using namespace std::chrono_literals;
 
@@ -22,22 +23,31 @@ BleSerial ble;
 MM::Variables vars {};
 MM::Components comp {};
 
-MM::Task task_read_sensors   {MM::read_sensors, 1s};
-MM::Task task_pre_process    {MM::pre_process, 1s};
-MM::Task task_evaluate       {MM::evaluate, 1s};
-MM::Task task_post_process   {MM::post_process, 1s};
-MM::Task task_update_outputs {MM::update_outputs, 1s};
-MM::Task task_debug          {debug, 1s};
+MM::Task task_read_sensors   {MM::read_sensors, 10ms};
+MM::Task task_pre_process    {MM::pre_process, 10ms};
+MM::Task task_evaluate       {MM::evaluate, 10ms};
+MM::Task task_post_process   {MM::post_process, 10ms};
+MM::Task task_update_outputs {MM::update_outputs, 10ms};
+MM::Task task_debug          {debug, 10ms};
 
 
 void debug() {
-  LOG_INFO("Hello World!\n");
+   
 }
 
 void setup() {
   LOGGING_BEGIN();
-  pinMode(DEBUG_LED_1, OUTPUT);
-  LOG_INFO("Setup Done\n");
+  /*vars.ir_en_frontleft=true;
+  comp.IR_frontleft.update_output();
+  vars.ir_en_frontright=true;
+  comp.IR_frontright.update_output();
+  vars.ir_en_left=true;
+  comp.IR_left.update_output();
+  vars.ir_en_right=true;
+  comp.IR_right.update_output();
+  LOG_INFO("Setup Done\n");*/
+  delay(2000);
+    
 }
 
 void loop() {
