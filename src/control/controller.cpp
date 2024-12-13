@@ -31,12 +31,11 @@ vars.ir_frontright_filt>vars.max_distance_stop)
         LOG_INFO("STOP \n");
     }
    else*/ if(vars.ir_left_filt<vars.ir_right_filt){
-        myPID.SetTunings(0.01,0,0);
+
         vars.haMerre = NINLEFT;
         LOG_INFO("NINLEFT \n");
     }
    else if(vars.ir_right_filt<vars.ir_left_filt){
-        myPID.SetTunings(0.01,0,0);
         vars.haMerre = NINRIGHT;
         LOG_INFO("NINRIGHT \n");
         
@@ -52,13 +51,13 @@ else
         vars.haMerre=RIGHT;//balra
     }
     else if(vars.ir_left_filt>vars.maximum_distance&&vars.ir_right_filt<vars.maximum_distance){
-        myPID.SetTunings(0.001,0,0);
+        myPID.SetTunings(0.007,0,0);
        
 
         vars.haMerre=LEFT;//jobbra
     }
     else{
-        myPID.SetTunings(0.007,0,0);
+        myPID.SetTunings(0.001,0,0);
         
      
         vars.haMerre=FORWARD;
