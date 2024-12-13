@@ -31,13 +31,11 @@ void MM::update_outputs()
          case NINLEFT:
          comp.motor_left.motorGoP(19);
          comp.motor_right.motorGoP(3);
-         delay(500);
          
          break;
          case NINRIGHT:
          comp.motor_left.motorGoP(3);
          comp.motor_right.motorGoP(19);
-         delay(500);
          break;
          case RIGHT:
          comp.motor_left.motorBrake(10);
