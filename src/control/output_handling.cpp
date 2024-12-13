@@ -37,15 +37,15 @@ void MM::update_outputs()
          comp.motor_right.motorGo(25);
          break;
          case RIGHT:
-         comp.motor_left.motorBrake(15);
-         comp.motor_right.motorBrake(15);
+         comp.motor_left.motorBrake(10);
+         comp.motor_right.motorBrake(10);
          comp.motor_left.motorGo(25 + vars.Output);
          comp.motor_right.motorGo(25 - vars.Output);
          break;
          case LEFT:
          LOG_INFO("RIGHT");
-         comp.motor_left.motorBrake(15);
-         comp.motor_right.motorBrake(15);
+         comp.motor_left.motorBrake(10);
+         comp.motor_right.motorBrake(10);
          comp.motor_left.motorGo(25 + vars.Output);
          comp.motor_right.motorGo(25 - vars.Output);
          
