@@ -31,6 +31,7 @@ void MM::update_outputs()
          case NINLEFT:
          comp.motor_left.motorGo(25);
          comp.motor_right.motorGo(-25);
+         
          break;
          case NINRIGHT:
          comp.motor_left.motorGo(-25);
