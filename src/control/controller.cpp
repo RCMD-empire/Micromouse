@@ -26,10 +26,10 @@ bool jo =true;
 if (vars.ir_frontleft_filt>vars.maximum_distance&&vars.ir_frontright_filt>vars.maximum_distance)
 {
    
-   if(vars.ir_left_filt>vars.maximum_distance){
+   if(vars.ir_left_filt>300){
         vars.haMerre = NINRIGHT;
    }
-    else if(vars.ir_right_filt>vars.maximum_distance){
+    else if(vars.ir_right_filt>300){
         vars.haMerre = NINLEFT;
     }
     else{
