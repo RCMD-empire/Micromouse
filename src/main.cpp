@@ -46,7 +46,7 @@ void setup() {
   vars.ir_en_right=true;
   comp.IR_right.update_output();
   LOG_INFO("Setup Done\n");*/
-
+  delay(2000);
     
 }
 
