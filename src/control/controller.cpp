@@ -30,11 +30,11 @@ vars.ir_right_filt>300)
 {
    
    if(vars.ir_left_filt<vars.max_distance_stop){
-        myPID.SetTunings(0.03,0,0);
+        myPID.SetTunings(0.01,0,0);
         vars.haMerre = NINLEFT;
    }
     else if(vars.ir_right_filt<vars.max_distance_stop){
-        myPID.SetTunings(0.03,0,0);
+        myPID.SetTunings(0.01,0,0);
         vars.haMerre = NINRIGHT;
     }
     else{
