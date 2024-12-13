@@ -24,20 +24,18 @@ bool jo =true;
 
  
 if (vars.ir_frontleft_filt>vars.max_distance_stop&&
-vars.ir_frontright_filt>vars.max_distance_stop&&
-vars.ir_left_filt>300&&
-vars.ir_right_filt>300)
+vars.ir_frontright_filt>vars.max_distance_stop)
 {
-   
-   if(vars.ir_left_filt<vars.max_distance_stop){
-        vars.haMerre = NINLEFT;
-   }
-    else if(vars.ir_right_filt<vars.max_distance_stop){
-        vars.haMerre = NINRIGHT;
-    }
-    else{
+   if (vars.ir_left_filt>300 && vars.ir_right_filt>300){
         vars.haMerre= STOP;
     }
+   else if(vars.ir_left_filt<vars.ir_right_filt){
+        vars.haMerre = NINLEFT;
+    }
+   else if(vars.ir_right_filt<vars.ir_left_filt){
+        vars.haMerre = NINRIGHT;
+    }
+    
 
 }
 else 
