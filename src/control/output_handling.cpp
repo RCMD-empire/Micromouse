@@ -25,30 +25,30 @@ void MM::update_outputs()
        switch (vars.haMerre)
       {
        case FORWARD:
-         comp.motor_left.motorGoP(25-vars.Output);
-         comp.motor_right.motorGoP(25+vars.Output);
+         comp.motor_left.motorGoP(23-vars.Output);
+         comp.motor_right.motorGoP(23+vars.Output);
          break;
          case NINLEFT:
-         comp.motor_left.motorGoP(15);
-         comp.motor_right.motorGoP(7);
+         comp.motor_left.motorGoP(18);
+         comp.motor_right.motorGoP(5);
          
          break;
          case NINRIGHT:
-         comp.motor_left.motorGoP(7);
-         comp.motor_right.motorGoP(15);
+         comp.motor_left.motorGoP(5);
+         comp.motor_right.motorGoP(18);
          break;
          case RIGHT:
          comp.motor_left.motorBrake(10);
          comp.motor_right.motorBrake(10);
-         comp.motor_left.motorGo(25 + vars.Output);
-         comp.motor_right.motorGo(25 - vars.Output);
+         comp.motor_left.motorGo(23 + vars.Output);
+         comp.motor_right.motorGo(23 - vars.Output);
          break;
          case LEFT:
          LOG_INFO("RIGHT");
          comp.motor_left.motorBrake(10);
          comp.motor_right.motorBrake(10);
-         comp.motor_left.motorGo(25 + vars.Output);
-         comp.motor_right.motorGo(25 - vars.Output);
+         comp.motor_left.motorGo(23 + vars.Output);
+         comp.motor_right.motorGo(23 - vars.Output);
          
          break;
          case STOP:
