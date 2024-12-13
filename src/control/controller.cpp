@@ -41,12 +41,12 @@ if (vars.ir_frontleft_filt>vars.maximum_distance&&vars.ir_frontright_filt>vars.m
 else 
   {
     if(vars.ir_left_filt<vars.maximum_distance&&vars.ir_right_filt>vars.maximum_distance){
-        myPID.SetTunings(0.03,0,0);
+        myPID.SetTunings(0.003,0,0);
         
         vars.haMerre=RIGHT;//balra
     }
     else if(vars.ir_left_filt>vars.maximum_distance&&vars.ir_right_filt<vars.maximum_distance){
-        myPID.SetTunings(0.03,0,0);
+        myPID.SetTunings(0.003,0,0);
        
 
         vars.haMerre=LEFT;//jobbra
