@@ -29,13 +29,23 @@ void MM::update_outputs()
          comp.motor_right.motorGoP(25+vars.Output);
          break;
          case NINLEFT:
-         comp.motor_left.motorGoP(19);
-         comp.motor_right.motorGoP(3);
+         for (size_t i = 0; i < 2; i++)
+         {
+          comp.motor_left.motorGoP(19);
+          comp.motor_right.motorGoP(3);
+          delay(10);
+         }
+         
          
          break;
          case NINRIGHT:
-         comp.motor_left.motorGoP(3);
-         comp.motor_right.motorGoP(19);
+         for (size_t i = 0; i < 2; i++)
+         {
+          comp.motor_left.motorGoP(3);
+          comp.motor_right.motorGoP(19);
+          delay(10);
+         }
+         
          break;
          case RIGHT:
          comp.motor_left.motorBrake(10);
